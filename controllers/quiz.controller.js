@@ -26,8 +26,11 @@ export const createAnswers = (req, res) => {
 }
 
 export const findAll = (req, res) => {
+    console.log(req.userId)
     Quiz.getAll((err, data) => {
-        if(err) res.status(500).send({msg: "exist some error"})
+        if(err){
+            res.status(500).send({msg: "exist some error"})
+        }
         res.send(data)
     })
 }
